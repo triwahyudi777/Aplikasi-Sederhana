@@ -4,12 +4,19 @@ import 'package:uts2/screens/course_screen.dart';
 class HomePage extends StatelessWidget {
   //creating static data in lists
   List catNames = [
-    "Category",
-    'Classes',
-    'Free Course',
-    'BookStore',
-    'Live Course',
-    'LeaderBoard',
+    "SIP-LK",
+    'MANAJEMEN SURAT',
+    'SI HRD',
+    'SARPRAS',
+    'APPLE',
+    'BERKAS',
+  ];
+
+  List aNames = [
+    "INSENTIF",
+    'SIKAD',
+    'SIKEMAS',
+    'SIMPLE',
   ];
 
   List<Color> catColors = [
@@ -21,14 +28,29 @@ class HomePage extends StatelessWidget {
     Color(0xFF78E667),
   ];
 
+  List<Color> aColors = [
+    Color(0xFFFFCF2F),
+    Color(0xFF6FE08D),
+    Color(0xFF618DFD),
+    Color(0xFFFC7F7F),
+  ];
+
   List<Icon> catIcons = [
     Icon(Icons.category, color: Colors.white, size: 30),
-    Icon(Icons.video_library, color: Colors.white, size: 30),
+    Icon(Icons.email_outlined, color: Colors.white, size: 30),
     Icon(Icons.assignment, color: Colors.white, size: 30),
     Icon(Icons.store, color: Colors.white, size: 30),
-    Icon(Icons.play_circle_fill, color: Colors.white, size: 30),
-    Icon(Icons.emoji_events, color: Colors.white, size: 30),
+    Icon(Icons.apple_outlined, color: Colors.white, size: 30),
+    Icon(Icons.storage_outlined, color: Colors.white, size: 30),
   ];
+
+  List<Icon> aIcons = [
+    Icon(Icons.money, color: Colors.white, size: 30),
+    Icon(Icons.email_outlined, color: Colors.white, size: 30),
+    Icon(Icons.computer, color: Colors.white, size: 30),
+    Icon(Icons.mic_external_off_outlined, color: Colors.white, size: 30),
+  ];
+
   List imgList = [
     'Laravel',
     'React Native',
@@ -197,6 +219,18 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Kepegawaian",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
+          ),
           Padding(
             padding: EdgeInsets.only(top: 20, left: 15, right: 15),
             child: Column(
@@ -226,6 +260,53 @@ class HomePage extends StatelessWidget {
                         SizedBox(height: 10),
                         Text(
                           catNames[index],
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black.withOpacity(0.7),
+                          ),
+                        ),
+                      ],
+                    );
+                  }),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Akademik",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+                GridView.builder(
+                  itemCount: aNames.length,
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    childAspectRatio: 1.1,
+                  ),
+                  itemBuilder: ((context, index) {
+                    return Column(
+                      children: [
+                        Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            color: aColors[index],
+                            shape: BoxShape.circle,
+                          ),
+                          child: Center(
+                            child: aIcons[index],
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          aNames[index],
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
